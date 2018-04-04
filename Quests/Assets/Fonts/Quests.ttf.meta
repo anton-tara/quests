@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 44b29e4ced8c096468d2cd6c1f89c0e3
+timeCreated: 1521125871
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Columbina
+  fontNames:
+  - Columbina
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
