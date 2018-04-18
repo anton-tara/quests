@@ -16,20 +16,32 @@ public class TextClass : MonoBehaviour {
 	private int currentPage = 1;
 	private bool win = false;
 	private bool lose = false;
+	private bool bring = false;
 
 
 	void Start () {
 		things = new List<string> ();
 		SaveManager.currentPoints = 0;
-		StreamReader sr = new StreamReader("quest"+SaveManager.currentQuest+".txt");
-		while (!sr.EndOfStream) {
-			foreach (char a in sr.ReadLine().ToCharArray()) {
-				if (a == 'n')
-					text += "\n";
-				else
-					text += a;
-			}
-		}
+
+		string line; 
+		StreamReader reader; 
+		TextAsset reader_file = Resources.Load<TextAsset>("quest"+SaveManager.currentQuest); 
+		if (reader_file != null) 
+		{ 
+			using (reader = new StreamReader(new MemoryStream(reader_file.bytes))) 
+			{ 
+				while ((line = reader.ReadLine()) != null) 
+				{ 
+					foreach (char a in line) {
+						if (a == 'n')
+							text += "\n";
+						else
+							text += a;
+					}
+				} 
+			} 
+		} 
+			
 		string str = Page(Part (0),1);
 		GameObject.Find ("text1").GetComponent<Text> ().text = SetImage(str.Split('[')[0]==null?str:str.Split('[')[0]);
 	}
@@ -68,6 +80,11 @@ public class TextClass : MonoBehaviour {
 					isNum = true;
 				else if (a == ')') {
 					isNum = false;
+					if (num.Contains ("+")) {
+						bring = true;
+					}
+					else
+						bring = false;
 					n = Convert.ToInt32(num.Replace("+",""));
 					num = "";
 				}
@@ -317,14 +334,15 @@ public class TextClass : MonoBehaviour {
 			.Split ('+').Length>1 &&
 			g.name.Split ('/') [0]
 			.Split ('+') [1] != null &&
-		   !CheckIt (g.name.Split ('+') [1])) {
+			!CheckIt (g.name.Split ('+') [1].Split('/')[0])) {
 			GameObject.Find(g.name.Split(' ')[0]).GetComponent<Text>().text = "У вас нет "+g.name.Split ('+') [1].Split('/')[0];
 			return;
 		}
 			
 
-		if(g.name.Split ('/') [1].Contains("+"))
-			things.Add(g.name.Split('/')[0]);
+		if (bring) {
+			things.Add (g.name.Split ('/') [0]);
+		}
 		
 		currentPart = int.Parse(g.name.Split ('/') [1].Replace("+",""));
 		string str = Page (Part (currentPart), 1);

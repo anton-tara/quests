@@ -6,7 +6,7 @@ PlayerSettings:
   serializedVersion: 12
   productGUID: 255c30fedf9194e4484e4a9cdf9d6235
   AndroidProfiler: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 0
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
@@ -141,7 +141,7 @@ PlayerSettings:
   targetPixelDensity: 0
   resolutionScalingMode: 0
   applicationIdentifier:
-    Android: ru.Fatttony.AntonT
+    Android: ru.fatttony.antony
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16

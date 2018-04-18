@@ -55,6 +55,8 @@
      <Compile Include="Assets\Scripts\Achievements.cs" />
      <Compile Include="Assets\Scripts\Buttons.cs" />
      <Compile Include="Assets\Scripts\TextClass.cs" />
+     <None Include="Assets\Resources\about.txt" />
+     <None Include="Assets\Resources\quest1.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -7,23 +7,27 @@ using UnityEngine.UI;
 
 public class About : MonoBehaviour {
 
-	// Use this for initialization
 	void Start () {
 		string text = "";
-		StreamReader sr1 = new StreamReader("about.txt");
-		while (!sr1.EndOfStream) {
-			foreach (char a in sr1.ReadLine().ToCharArray()) {
-				if (a == 'n')
-					text += "\n";
-				else
-					text += a;
-			}
-		}
+		string line; 
+		StreamReader reader; 
+		TextAsset reader_file = Resources.Load<TextAsset>("about"); 
+		if (reader_file != null) 
+		{ 
+			using (reader = new StreamReader(new MemoryStream(reader_file.bytes))) 
+			{ 
+				while ((line = reader.ReadLine()) != null) 
+				{ 
+					foreach (char a in line) {
+						if (a == 'n')
+							text += "\n";
+						else
+							text += a;
+					}
+				} 
+			} 
+		} 
+
 		GetComponent<Text> ().text = text;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }
