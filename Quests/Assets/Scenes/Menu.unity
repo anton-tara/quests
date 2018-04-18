@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 121269219}
   - component: {fileID: 121269218}
   m_Layer: 0
-  m_Name: Mouns
+  m_Name: escape from the castle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

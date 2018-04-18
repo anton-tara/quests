@@ -8,6 +8,7 @@ public class Achievements : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//GameObject.Find ("status2").GetComponent<Text> ().text = PlayerPrefs.GetString ("quest2Status")==null?"Никто":PlayerPrefs.GetString ("quest2Status");
+		if(SaveManager.win==null) return;
 		int stars1 = PlayerPrefs.GetInt ("quest1Stars");
 		//int stars2 = PlayerPrefs.GetInt ("quest2Stars");
 		for(int i = 1;i <= 3;i++){
